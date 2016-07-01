@@ -37,7 +37,7 @@ public class TextGridParser implements TextParser {
          */
         final int stringSize = (int) Math.ceil(Math.sqrt(textChars.length));
 
-        StringBuilder string = new StringBuilder();
+        final StringBuilder string = new StringBuilder();
         for (int i = 1; i <= textChars.length; i++) {
             string.append(textChars[i-1]);
 

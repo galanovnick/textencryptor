@@ -3,7 +3,7 @@ package encryptor.impl;
 import java.util.List;
 
 /**
- * Interface for transforming strings.
+ * Interface for strings transformation.
  */
 public interface StringConverter {
 

@@ -27,9 +27,9 @@ public class TextEncryptorImpl implements TextEncryptor {
             log.debug("Encrypting text: \"" + text + "\"");
         }
 
-        List<String> processedParts = converter.transform(parser.analyze(text));
+        final List<String> processedParts = converter.transform(parser.analyze(text));
 
-        StringBuilder resultString = new StringBuilder();
+        final StringBuilder resultString = new StringBuilder();
 
         for (int i = 0; i < processedParts.size(); i++) {
             resultString.append(processedParts.get(i));

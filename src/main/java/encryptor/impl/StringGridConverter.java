@@ -32,12 +32,15 @@ public class StringGridConverter implements StringConverter {
         }
 
         final List<StringBuilder> resultStrings = new ArrayList<>();
-        for (int i = 0; i < strings.get(0).length(); i++) {
+
+        final int resultStringNumber = strings.get(0).length();
+
+        for (int i = 0; i < resultStringNumber; i++) {
             resultStrings.add(new StringBuilder());
         }
 
         strings.forEach((string) -> {
-            char[] stringChars = string.toCharArray();
+            final char[] stringChars = string.toCharArray();
             for (int i = 0; i < stringChars.length; i++) {
                 resultStrings.get(i).append(stringChars[i]);
             }
@@ -46,6 +49,10 @@ public class StringGridConverter implements StringConverter {
         if (log.isDebugEnabled()) {
             log.debug("Transforming done");
         }
+
+        /**
+         * Transform into list of Strings using guava.
+         */
         return Lists.transform(resultStrings, StringBuilder::toString);
     }
 }

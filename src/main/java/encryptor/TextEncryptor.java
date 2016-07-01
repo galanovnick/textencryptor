@@ -1,7 +1,7 @@
 package encryptor;
 
 /**
- * Interface for encrypting text.
+ * Interface for text encryption.
  */
 public interface TextEncryptor {
 
