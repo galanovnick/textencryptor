@@ -9,11 +9,14 @@ import static org.junit.Assert.assertNotNull;
 public class TextEncryptorTest {
 
     private final TextEncryptor encryptor = new TextEncryptorImpl();
-    private final String sentence = "if man was meant to stay on the ground god would have given us roots";
 
     @Test
-    public void smokeTest() {
-        assertNotNull("Smoke test failed.", encryptor.encrypt(sentence));
+    public void testComplexSentenceEncryption() {
+        final String sentence = "if man was meant to stay on the ground god would have given us roots";
+
+        final String expected = "imtgdvs fearwer mayoogo anouuio ntnnlvt wttddes aohghn sseoau";
+
+        assertEquals("Encryption of complex sentence failed.", expected, encryptor.encrypt(sentence));
     }
 
     @Test
@@ -25,6 +28,6 @@ public class TextEncryptorTest {
     @Test
     public void testLastSymbolsEncryption() {
         assertEquals("Encryption of last symbols failed.", "fto ehg ee dd",
-                "feed the dog");
+                encryptor.encrypt("feed the dog"));
     }
 }
