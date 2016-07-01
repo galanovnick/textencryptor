@@ -38,6 +38,7 @@ public class TextParserImpl implements TextParser {
         final int stringSize = (int) Math.ceil(Math.sqrt(textChars.length));
 
         final StringBuilder string = new StringBuilder();
+
         for (int i = 1; i <= textChars.length; i++) {
             string.append(textChars[i-1]);
 

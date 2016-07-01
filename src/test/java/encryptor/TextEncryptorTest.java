@@ -3,6 +3,10 @@ package encryptor;
 import encryptor.impl.TextEncryptorImpl;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.*;
+
 import static org.junit.Assert.assertEquals;
 
 public class TextEncryptorTest {
@@ -40,5 +44,28 @@ public class TextEncryptorTest {
     public void testWhitspacesEncryption() {
         assertEquals("Encryption of ine symbol failed.", "fto ehg ee dd",
                 encryptor.encrypt("    feed   the                  dog"));
+    }
+
+    @Test
+    public void testThreadSafety() throws ExecutionException, InterruptedException {
+        final ExecutorService executor = Executors.newFixedThreadPool(50);
+
+        final List<Future<String>> results = new ArrayList<>();
+
+        final CountDownLatch countDown = new CountDownLatch(50);
+
+        for (int i = 0; i < 50; i++) {
+            results.add(executor.submit(() -> {
+
+                countDown.countDown();
+                countDown.await();
+
+                return encryptor.encrypt("chillout");
+            }));
+        }
+
+        for (Future<String> elem : results) {
+            assertEquals("clu hlt io", elem.get());
+        }
     }
 }

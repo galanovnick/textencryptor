@@ -1,7 +1,7 @@
 package encryptor;
 
-import encryptor.impl.TextParserImpl;
-import encryptor.impl.TextParser;
+import encryptor.impl.StringConverter;
+import encryptor.impl.TranspositionStringConverter;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -11,15 +11,22 @@ import java.util.concurrent.*;
 
 import static org.junit.Assert.assertEquals;
 
-public class TextGridParserTest {
+public class TranspositionStringConverterTest {
 
-    private final TextParser parsers = new TextParserImpl();
+    private final StringConverter converter = new encryptor.impl.TranspositionStringConverter();
 
-    private final List<String> expected = new ArrayList<>(Arrays.asList("have", "anic", "eday"));
+    private final List<String> strings = new ArrayList<>(Arrays.asList("feed", "thed", "og"));
+
+    private final List<String> expected = new ArrayList<>(Arrays.asList("fto", "ehg", "ee", "dd"));
 
     @Test
-    public void testSimpleSentenceParsing() {
-        assertEquals("Parsing of simple sentence failed.", expected, parsers.analyze("have a nice day"));
+    public void testSimpleStringsConverting() {
+        assertEquals("Converting of simple strings failed.", expected, converter.transform(strings));
+    }
+
+    @Test
+    public void testLastSymbolsConverting() {
+        assertEquals("Converting of last symbols failed.", expected, converter.transform(strings));
     }
 
     @Test
@@ -36,7 +43,7 @@ public class TextGridParserTest {
                 countDown.countDown();
                 countDown.await();
 
-                return parsers.analyze("have a nice day");
+                return converter.transform(strings);
             }));
         }
 
