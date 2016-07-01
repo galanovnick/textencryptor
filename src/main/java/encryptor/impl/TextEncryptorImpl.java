@@ -6,6 +6,9 @@ import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
+import static com.google.common.base.Preconditions.checkArgument;
+import static com.google.common.base.Preconditions.checkNotNull;
+
 /**
  * Implements text encryption using rule of matrix transposition (@see TranspositionStringConverter).
  */
@@ -23,6 +26,10 @@ public class TextEncryptorImpl implements TextEncryptor {
      */
     @Override
     public String encrypt(String text) {
+
+        checkNotNull(text, "Expected not null string.");
+        checkArgument(text.length() > 0, "Expected not empty string.");
+
         if (log.isDebugEnabled()) {
             log.debug("Encrypting text: \"" + text + "\"");
         }

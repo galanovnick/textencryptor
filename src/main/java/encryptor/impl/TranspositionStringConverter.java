@@ -7,6 +7,9 @@ import org.slf4j.LoggerFactory;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.google.common.base.Preconditions.checkArgument;
+import static com.google.common.base.Preconditions.checkNotNull;
+
 /**
  * Implements strings formatting using rule of matrix transposition.
  *
@@ -26,6 +29,8 @@ public class TranspositionStringConverter implements StringConverter {
      */
     @Override
     public List<String> transform(List<String> strings) {
+        checkNotNull(strings, "Expected not null list.");
+        checkArgument(strings.size() > 0, "Expected not empty list.");
 
         if (log.isDebugEnabled()) {
             log.debug("Transforming...");
