@@ -1,7 +1,7 @@
 package encryptor;
 
 import encryptor.impl.StringConverter;
-import encryptor.impl.StringGridConverter;
+import encryptor.impl.TranspositionStringConverter;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -12,7 +12,7 @@ import static org.junit.Assert.assertEquals;
 
 public class StringGridConverterTest {
 
-    private final StringConverter converter = new StringGridConverter();
+    private final StringConverter converter = new TranspositionStringConverter();
 
     @Test
     public void testSimpleStringsConverting() {

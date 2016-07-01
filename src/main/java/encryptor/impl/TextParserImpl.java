@@ -12,9 +12,9 @@ import static com.google.common.base.Preconditions.checkNotNull;
 /**
  * Implements text parsing in a list of strings with fixed length.
  */
-public class TextGridParser implements TextParser {
+public class TextParserImpl implements TextParser {
 
-    private final Logger log = LoggerFactory.getLogger(TextGridParser.class);
+    private final Logger log = LoggerFactory.getLogger(TextParserImpl.class);
 
     /**
      * Returns parsed list of strings.

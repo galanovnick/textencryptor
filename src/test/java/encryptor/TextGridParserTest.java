@@ -1,6 +1,6 @@
 package encryptor;
 
-import encryptor.impl.TextGridParser;
+import encryptor.impl.TextParserImpl;
 import encryptor.impl.TextParser;
 import org.junit.Test;
 
@@ -12,7 +12,7 @@ import static org.junit.Assert.assertEquals;
 
 public class TextGridParserTest {
 
-    private final TextParser parsers = new TextGridParser();
+    private final TextParser parsers = new TextParserImpl();
 
     @Test
     public void testSimpleSentenceParsing() {

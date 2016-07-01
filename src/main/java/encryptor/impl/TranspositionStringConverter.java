@@ -15,9 +15,9 @@ import java.util.List;
  * i j k l    c g k
  *            d h l
  */
-public class StringGridConverter implements StringConverter {
+public class TranspositionStringConverter implements StringConverter {
 
-    private final Logger log = LoggerFactory.getLogger(StringGridConverter.class);
+    private final Logger log = LoggerFactory.getLogger(TranspositionStringConverter.class);
 
     /**
      * Returns transformed strings.

@@ -7,14 +7,14 @@ import org.slf4j.LoggerFactory;
 import java.util.List;
 
 /**
- * Implements text encryption using rule of matrix transposition (@see StringGridConverter).
+ * Implements text encryption using rule of matrix transposition (@see TranspositionStringConverter).
  */
 public class TextEncryptorImpl implements TextEncryptor {
 
     private final Logger log = LoggerFactory.getLogger(TextEncryptorImpl.class);
 
-    private final TextParser parser = new TextGridParser();
-    private final StringConverter converter = new StringGridConverter();
+    private final TextParser parser = new TextParserImpl();
+    private final StringConverter converter = new TranspositionStringConverter();
 
     /**
      * Returns encrypted text.
