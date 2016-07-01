@@ -17,7 +17,7 @@ public class TextGridParserTest {
     @Test
     public void testSimpleSentenceParsing() {
 
-        final List<String> expected = new ArrayList<>(Arrays.asList("hav", "ean", "ice", "day"));
+        final List<String> expected = new ArrayList<>(Arrays.asList("have", "anic", "eday"));
 
         assertEquals("Parsing of simple sentence failed.", expected, parsers.analyze("have a nice day"));
     }
