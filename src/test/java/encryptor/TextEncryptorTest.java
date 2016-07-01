@@ -4,7 +4,6 @@ import encryptor.impl.TextEncryptorImpl;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 
 public class TextEncryptorTest {
 
@@ -29,5 +28,17 @@ public class TextEncryptorTest {
     public void testLastSymbolsEncryption() {
         assertEquals("Encryption of last symbols failed.", "fto ehg ee dd",
                 encryptor.encrypt("feed the dog"));
+    }
+
+    @Test
+    public void testOneSymbolEncryption() {
+        assertEquals("Encryption of ine symbol failed.", "a",
+                encryptor.encrypt("a"));
+    }
+
+    @Test
+    public void testWhitspacesEncryption() {
+        assertEquals("Encryption of ine symbol failed.", "fto ehg ee dd",
+                encryptor.encrypt("    feed   the                  dog"));
     }
 }
